@@ -29,6 +29,7 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.passwordbtn = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -94,6 +95,17 @@ Partial Class Form1
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Password"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Maroon
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(12, 536)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(150, 49)
+        Me.Button1.TabIndex = 6
+        Me.Button1.Text = "User Manual"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -101,6 +113,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(1135, 597)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.passwordbtn)
         Me.Controls.Add(Me.Button2)
@@ -120,4 +133,5 @@ Partial Class Form1
     Friend WithEvents Button2 As Button
     Friend WithEvents passwordbtn As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
 End Class

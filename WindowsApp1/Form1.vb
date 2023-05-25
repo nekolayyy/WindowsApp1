@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.IO
 
 Public Class Form1
 
@@ -35,4 +36,15 @@ Public Class Form1
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim filePath As String = "C:\Users\hale3\source\repos\WindowsApp1\WindowsApp1\usermanual\Austria--EDPact7.pdf"
+
+        If File.Exists(filePath) Then
+            Process.Start(filePath)
+        Else
+            MessageBox.Show("File not found")
+        End If
+    End Sub
+
 End Class

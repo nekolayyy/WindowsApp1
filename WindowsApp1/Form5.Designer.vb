@@ -60,6 +60,7 @@ Partial Class Form5
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(157, 22)
         Me.TextBox1.TabIndex = 2
+        Me.TextBox1.Text = "dad"
         '
         'TextBox2
         '

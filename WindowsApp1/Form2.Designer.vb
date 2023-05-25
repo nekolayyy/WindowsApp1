@@ -33,7 +33,7 @@ Partial Class Form2
         '
         Me.Button5.BackColor = System.Drawing.Color.Maroon
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(159, 384)
+        Me.Button5.Location = New System.Drawing.Point(226, 469)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(209, 44)
         Me.Button5.TabIndex = 12
@@ -47,14 +47,14 @@ Partial Class Form2
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(776, 366)
+        Me.DataGridView1.Size = New System.Drawing.Size(879, 366)
         Me.DataGridView1.TabIndex = 13
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Maroon
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(437, 384)
+        Me.Button1.Location = New System.Drawing.Point(682, 469)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(209, 44)
         Me.Button1.TabIndex = 14
@@ -67,7 +67,7 @@ Partial Class Form2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(903, 540)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button5)
