@@ -15,11 +15,10 @@ Public Class Form1
             'MsgBox(strSQL)
             mycmd.CommandText = strSQL
             mycmd.Connection = myconn
-
             myreader = mycmd.ExecuteReader
             If myreader.HasRows Then
                 .Hide()
-                Form2.Show()
+                Form4.Show()
             Else
                 MessageBox.Show("Invalid username or password")
             End If

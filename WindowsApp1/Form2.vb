@@ -1,54 +1,51 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class Form2
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Public sqlColumns As String = "customer_id as customer_id, first_name as first_name, last_name as last_name"
+    Private Sub Load_Data_to_Grid(ByVal strsql As String)
+        Dim myreader As MySqlDataReader
+        Dim mycommand As New MySqlCommand
+        Dim mydataAdapter As New MySqlDataAdapter
+        Dim mydatatable As New DataTable
 
+        Connect_toDB()
+        With Me
+            Try
+                mycommand.Connection = myconn
+                mycommand.CommandText = strsql
+                myreader = mycommand.ExecuteReader
+                mydatatable = New DataTable
+
+                myreader.Close()
+                mydataAdapter.SelectCommand = mycommand
+
+                mydataAdapter.Fill(mydatatable)
+                DataGridView1.AutoSize = True
+                .DataGridView1.Refresh()
+                .DataGridView1.EndEdit()
+                .DataGridView1.DataSource = mydatatable
+                .DataGridView1.ReadOnly = True
+                .DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
+
+            Catch ex As MySqlException
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error on SQL query")
+            End Try
+            myreader = Nothing
+            mycommand = Nothing
+            Disconnect_to_DB()
+        End With
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
-    End Sub
-
-    Private Sub Loginbtn_Click(sender As Object, e As EventArgs) Handles Loginbtn.Click
-        Dim backup As New SaveFileDialog
-        backup.InitialDirectory = "C:\"
-        backup.Title = "Database Backup"
-        backup.CheckFileExists = False
-        backup.CheckPathExists = False
-        backup.DefaultExt = "sql"
-        backup.Filter = "sql files (.sql)|.sql|All files (.)|*.*"
-        backup.RestoreDirectory = True
-
-        If backup.ShowDialog = Windows.Forms.DialogResult.OK Then
-            Call Connect_toDB()
-            Dim cmd As MySqlCommand = New MySqlCommand
-            cmd.Connection = myconn
-            Dim mb As MySqlBackup = New MySqlBackup(cmd)
-            mb.ExportToFile(backup.FileName)
-            myconn.Close()
-            MessageBox.Show("Database Successfully Backup!", "BACKUP", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        ElseIf backup.ShowDialog = Windows.Forms.DialogResult.Cancel Then
-            Return
-        End If
+    Private Sub reports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call Load_Data_to_Grid("select " & Me.sqlColumns & " from customer")
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Me.Hide()
-        Form1.Show()
-
+        Call importToExcel(Me.DataGridView1, "samplereport.xlsx")
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
-        Form8.Show()
-
+        Form4.Show()
     End Sub
 End Class
